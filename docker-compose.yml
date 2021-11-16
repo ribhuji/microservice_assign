@@ -1,0 +1,79 @@
+version: '3'
+services:
+  
+  nosql-db:
+    image: mongo
+    ports:
+      - "27017:27017"
+    container_name: nosql-db
+    volumes:
+      - ./db/:/data/db
+
+  rabbitmq3:
+    image: rabbitmq:3-management
+    ports:
+      - 5672:5672
+      - 15672:15672
+    container_name: rabbitmq3
+    healthcheck:
+      test: [ "CMD", "nc", "-z", "localhost", "5672" ]
+      interval: 30s
+      timeout: 5s
+      retries: 5
+
+  content:
+    build:
+      dockerfile: Dockerfile
+      context: ./content
+    container_name: content
+    ports:
+      - "8002:8002"
+    restart: on-failure
+    depends_on:
+      - nosql-db
+      - rabbitmq3
+    volumes:
+      - .:/app
+      - /app/content/node_modules
+
+  interaction:
+    build:
+      dockerfile: Dockerfile
+      context: ./interaction
+    container_name: interaction
+    ports:
+      - "8003:8003"
+    restart: on-failure
+    depends_on:
+      - nosql-db
+      - rabbitmq3
+    volumes:
+      - .:/app
+      - /app/interaction/node_modules
+
+  user:
+    build:
+      dockerfile: Dockerfile
+      context: ./user
+    container_name: user
+    ports:
+      - "8001:8001"
+    restart: always
+    depends_on:
+      - "nosql-db"
+    volumes:
+      - .:/app
+      - /app/user/node_modules
+  
+  nginx-proxy:
+    build:
+      dockerfile: Dockerfile
+      context: ./proxy
+    depends_on:
+      - content
+      - interaction
+      - user
+      - rabbitmq3
+    ports:
+      - "80:80"
+ 

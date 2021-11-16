@@ -1,0 +1,344 @@
+{
+	"info": {
+		"_postman_id": "1b28b670-638d-4f1a-b32d-ee24bef38715",
+		"name": "micro_assign",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "user",
+			"item": [
+				{
+					"name": "SIGNUP",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"first_name\": \"Ribhu\",\n    \"last_name\": \"Ratnam\",\n    \"email_id\": \"2018209@iiitdmj.ac.in\",\n    \"password\": \"ribhuratnam\",\n    \"phone_number\": \"9065563478\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:80/user/signup",
+							"host": [
+								"localhost"
+							],
+							"port": "80",
+							"path": [
+								"user",
+								"signup"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "LOGIN",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email_id\": \"2018209@iiitdmj.ac.in\",\n    \"password\": \"ribhuratnam\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:80/user/login",
+							"host": [
+								"localhost"
+							],
+							"port": "80",
+							"path": [
+								"user",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET PROFILE",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmaXJzdF9uYW1lIjoiUmliaHUiLCJsYXN0X25hbWUiOiJSYXRuYW0iLCJlbWFpbF9pZCI6IjIwMTgyMDlAaWlpdGRtai5hYy5pbiIsIl9pZCI6IjYxOTM0ZjE0OWI3OTUyYzczYTcyMzMyNyIsInBob25lX251bWJlciI6IjkwNjU1NjM0NzgiLCJpYXQiOjE2MzcwNDQwMTIsImV4cCI6MTYzNzEzMDQxMn0.6_zu42A2mWD244t9KNlSiTrFNuzKPMvJfzh0-t-OyME",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:80/user/profile",
+							"host": [
+								"localhost"
+							],
+							"port": "80",
+							"path": [
+								"user",
+								"profile"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "EDIT PROFILE",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmaXJzdF9uYW1lIjoiUmliaHUiLCJsYXN0X25hbWUiOiJSYXRuYW0iLCJlbWFpbF9pZCI6IjIwMTgyMDlAaWlpdGRtai5hYy5pbiIsIl9pZCI6IjYxOTM0ZjE0OWI3OTUyYzczYTcyMzMyNyIsInBob25lX251bWJlciI6IjkwNjU1NjM0NzgiLCJpYXQiOjE2MzcwNDQwMTIsImV4cCI6MTYzNzEzMDQxMn0.6_zu42A2mWD244t9KNlSiTrFNuzKPMvJfzh0-t-OyME",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"first_name\": \"Ribhu\",\n    \"last_name\": \"Ratnam\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:80/user/profile/edit",
+							"host": [
+								"localhost"
+							],
+							"port": "80",
+							"path": [
+								"user",
+								"profile",
+								"edit"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "content",
+			"item": [
+				{
+					"name": "CREATE CONTENT",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmaXJzdF9uYW1lIjoiUmliaHUiLCJsYXN0X25hbWUiOiJSYXRuYW0iLCJlbWFpbF9pZCI6IjIwMTgyMDlAaWlpdGRtai5hYy5pbiIsIl9pZCI6IjYxOTM0ZjE0OWI3OTUyYzczYTcyMzMyNyIsInBob25lX251bWJlciI6IjkwNjU1NjM0NzgiLCJpYXQiOjE2MzcwNDQwMTIsImV4cCI6MTYzNzEzMDQxMn0.6_zu42A2mWD244t9KNlSiTrFNuzKPMvJfzh0-t-OyME",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"story\": \"good story\",\n    \"title\": \"good title\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:80/",
+							"host": [
+								"localhost"
+							],
+							"port": "80",
+							"path": [
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET NEW CONTENTS",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:80/new",
+							"host": [
+								"localhost"
+							],
+							"port": "80",
+							"path": [
+								"new"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET TOP CONTENTS",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:80/?sort=likes",
+							"host": [
+								"localhost"
+							],
+							"port": "80",
+							"path": [
+								""
+							],
+							"query": [
+								{
+									"key": "sort",
+									"value": "likes"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "BULK UPLOAD",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmaXJzdF9uYW1lIjoiUmliaHUiLCJsYXN0X25hbWUiOiJSYXRuYW0iLCJlbWFpbF9pZCI6IjIwMTgyMDlAaWlpdGRtai5hYy5pbiIsIl9pZCI6IjYxOTM0ZjE0OWI3OTUyYzczYTcyMzMyNyIsInBob25lX251bWJlciI6IjkwNjU1NjM0NzgiLCJpYXQiOjE2MzcwNDQwMTIsImV4cCI6MTYzNzEzMDQxMn0.6_zu42A2mWD244t9KNlSiTrFNuzKPMvJfzh0-t-OyME",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "csvfile",
+									"type": "file",
+									"src": "/home/ribhu/Desktop/micro_assign - Sheet1.csv"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:80/bulk",
+							"host": [
+								"localhost"
+							],
+							"port": "80",
+							"path": [
+								"bulk"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "interaction",
+			"item": [
+				{
+					"name": "READ",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmaXJzdF9uYW1lIjoiUmliaHUiLCJsYXN0X25hbWUiOiJSYXRuYW0iLCJlbWFpbF9pZCI6IjIwMTgyMDlAaWlpdGRtai5hYy5pbiIsIl9pZCI6IjYxOTM0ZjE0OWI3OTUyYzczYTcyMzMyNyIsInBob25lX251bWJlciI6IjkwNjU1NjM0NzgiLCJpYXQiOjE2MzcwNDQwMTIsImV4cCI6MTYzNzEzMDQxMn0.6_zu42A2mWD244t9KNlSiTrFNuzKPMvJfzh0-t-OyME",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"content_id\": \"61934f7b09af45cd93d17b90\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:80/interaction/read",
+							"host": [
+								"localhost"
+							],
+							"port": "80",
+							"path": [
+								"interaction",
+								"read"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "LIKE",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmaXJzdF9uYW1lIjoiUmliaHUiLCJsYXN0X25hbWUiOiJSYXRuYW0iLCJlbWFpbF9pZCI6IjIwMTgyMDlAaWlpdGRtai5hYy5pbiIsIl9pZCI6IjYxOTM0ZjE0OWI3OTUyYzczYTcyMzMyNyIsInBob25lX251bWJlciI6IjkwNjU1NjM0NzgiLCJpYXQiOjE2MzcwNDQwMTIsImV4cCI6MTYzNzEzMDQxMn0.6_zu42A2mWD244t9KNlSiTrFNuzKPMvJfzh0-t-OyME",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"content_id\": \"61934f7b09af45cd93d17b90\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:80/interaction/like",
+							"host": [
+								"localhost"
+							],
+							"port": "80",
+							"path": [
+								"interaction",
+								"like"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
